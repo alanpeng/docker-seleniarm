@@ -24,7 +24,7 @@ jobs:
         type: executor
     executor: << parameters.machine-type >>
     environment:
-      NAMESPACE: seleniarm
+      NAMESPACE: alanpeng
       BUILD_DATE: today
       PLATFORMS: << parameters.platforms >>
     steps:
@@ -76,7 +76,7 @@ jobs:
         type: executor
     executor: << parameters.machine-type >>
     environment:
-      NAMESPACE: seleniarm
+      NAMESPACE: alanpeng
       BUILD_DATE: today
     steps:
       - checkout
@@ -115,7 +115,7 @@ jobs:
         type: executor
     executor: << parameters.machine-type >>
     environment:
-      NAMESPACE: seleniarm
+      NAMESPACE: alanpeng
       PLATFORMS: << parameters.platforms >>
       BUILD_ARGS: << parameters.build-args >>
       DEPLOY_BRANCH: trunk
@@ -200,7 +200,7 @@ jobs:
         type: string
     executor: << parameters.machine-type >>
     environment:
-      NAMESPACE: seleniarm
+      NAMESPACE: alanpeng
       PLATFORMS: << parameters.platforms >>
       BUILD_ARGS: << parameters.build-args >>
       MAKE_TARGETS: << parameters.make-targets >>
