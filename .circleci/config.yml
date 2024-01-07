@@ -55,8 +55,8 @@ jobs:
             echo $NAMESPACE/standalone-chromium:$VERSION-$BUILD_DATE 
             echo $NAMESPACE/node-firefox:$VERSION-$BUILD_DATE 
             echo $NAMESPACE/standalone-firefox:$VERSION-$BUILD_DATE
-            docker push $NAMESPACE/standalone-chromium:$VERSION-$BUILD_DATE 
-            docker push $NAMESPACE/node-firefox:$VERSION-$BUILD_DATE 
+            docker tag $NAMESPACE/standalone-chromium:$VERSION-$BUILD_DATE alanpeng/seleniarm-standalone-chromium:$VERSION-$BUILD_DATE
+            docker push alanpeng/seleniarm-standalone-chromium:$VERSION-$BUILD_DATE
             
             docker save -o multi-arch-images.tar \
               $NAMESPACE/base:$VERSION-$BUILD_DATE \
