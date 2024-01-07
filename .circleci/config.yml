@@ -55,7 +55,7 @@ jobs:
             echo $NAMESPACE/standalone-chromium:$VERSION-$BUILD_DATE 
             echo $NAMESPACE/node-firefox:$VERSION-$BUILD_DATE 
             echo $NAMESPACE/standalone-firefox:$VERSION-$BUILD_DATE
-            docker images
+            docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
             docker tag $NAMESPACE/standalone-chromium:$VERSION-$BUILD_DATE alanpeng/seleniarm-standalone-chromium:$VERSION-$BUILD_DATE
             docker push alanpeng/seleniarm-standalone-chromium:$VERSION-$BUILD_DATE
             
