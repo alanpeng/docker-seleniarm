@@ -56,7 +56,6 @@ jobs:
             echo $NAMESPACE/node-firefox:$VERSION-$BUILD_DATE 
             echo $NAMESPACE/standalone-firefox:$VERSION-$BUILD_DATE
             
-            docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
             docker tag $NAMESPACE/base:$VERSION-$BUILD_DATE alanpeng/seleniarm-base:$VERSION-$BUILD_DATE-`uname -m`
             docker tag $NAMESPACE/node-base:$VERSION-$BUILD_DATE alanpeng/seleniarm-node-base:$VERSION-$BUILD_DATE-`uname -m` 
             docker tag $NAMESPACE/hub:$VERSION-$BUILD_DATE alanpeng/seleniarm-hub:$VERSION-$BUILD_DATE-`uname -m` 
@@ -65,12 +64,19 @@ jobs:
             docker tag $NAMESPACE/node-firefox:$VERSION-$BUILD_DATE alanpeng/seleniarm-node-firefox:$VERSION-$BUILD_DATE-`uname -m` 
             docker tag $NAMESPACE/standalone-firefox:$VERSION-$BUILD_DATE alanpeng/seleniarm-standalone-firefox:$VERSION-$BUILD_DATE-`uname -m`
 
+            docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
             docker push alanpeng/seleniarm-base:$VERSION-$BUILD_DATE-`uname -m`
+            docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
             docker push alanpeng/seleniarm-node-base:$VERSION-$BUILD_DATE-`uname -m` 
+            docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
             docker push alanpeng/seleniarm-hub:$VERSION-$BUILD_DATE-`uname -m` 
+            docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
             docker push alanpeng/seleniarm-node-chromium:$VERSION-$BUILD_DATE-`uname -m` 
+            docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
             docker push alanpeng/seleniarm-standalone-chromium:$VERSION-$BUILD_DATE-`uname -m` 
+            docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
             docker push alanpeng/seleniarm-node-firefox:$VERSION-$BUILD_DATE-`uname -m` 
+            docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
             docker push alanpeng/seleniarm-standalone-firefox:$VERSION-$BUILD_DATE-`uname -m`
 
             docker save -o multi-arch-images.tar \
